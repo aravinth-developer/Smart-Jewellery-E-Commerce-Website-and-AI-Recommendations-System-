@@ -1,0 +1,139 @@
+/* Floating Chat Icon */
+.wa-chat-icon {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #25D366;
+    color: white;
+    padding: 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    z-index: 9999;
+}
+
+/* Chat Container */
+.wa-chat-container {
+    position: fixed;
+    bottom: 90px;
+    right: 25px;
+    width: 380px;
+    height: 600px;
+    background: #ece5dd;
+    border-radius: 30px;
+    display: none;
+    flex-direction: column;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    overflow: hidden;
+    z-index: 9999;
+}
+
+/* Header */
+.wa-header {
+    background: #075E54;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wa-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wa-avatar {
+    width: 40px;
+    height: 40px;
+    background: white;
+    color: #075E54;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 20px;
+}
+
+.wa-name {
+    font-weight: bold;
+}
+
+.wa-status {
+    font-size: 12px;
+    color: #c8facc;
+}
+
+.wa-close {
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* Chat Body */
+.wa-chat-body {
+    flex: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* User Message */
+.wa-user {
+    align-self: flex-end;
+    background: #dcf8c6;
+    padding: 10px 14px;
+    border-radius: 15px 15px 0px 15px;
+    max-width: 75%;
+    font-size: 14px;
+    position: relative;
+}
+
+/* Bot Message */
+.wa-bot {
+    align-self: flex-start;
+    background: white;
+    padding: 10px 14px;
+    border-radius: 15px 15px 15px 0px;
+    max-width: 75%;
+    font-size: 14px;
+}
+
+/* Footer */
+.wa-footer {
+    display: flex;
+    padding: 10px;
+    background: #f0f0f0;
+    align-items: center;
+}
+
+.wa-footer input {
+    flex: 1;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 20px;
+    outline: none;
+}
+
+.wa-footer button {
+    margin-left: 10px;
+    background: #25D366;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+}
+
+/* Scrollbar */
+.wa-chat-body::-webkit-scrollbar {
+    width: 5px;
+}
+
+.wa-chat-body::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}

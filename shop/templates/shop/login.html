@@ -1,0 +1,89 @@
+{% extends 'shop/layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+Login | sreeselvi
+{% endblock title %}
+
+{% block content %}
+
+<div class="login-wrapper">
+
+<div class="overlay"></div>
+
+<div class="container d-flex justify-content-center align-items-center vh-100 position-relative">
+
+    <div class="login-card">
+
+        <h2 class="text-center text-gold mb-4">
+            Welcome Back
+        </h2>
+
+        {% include 'shop/inc/message.html' %}
+
+        <form method="post">
+            {% csrf_token %}
+
+            <!-- Username -->
+            <div class="floating-group">
+                <input type="text" name="username" id="username"
+                       class="modern-input" required placeholder=" ">
+                <label>Username</label>
+            </div>
+
+            <!-- Password -->
+            <div class="floating-group position-relative">
+                <input type="password" name="password" id="password"
+                       class="modern-input" required placeholder=" ">
+                <label>Password</label>
+
+                <span class="toggle-password"
+                      onclick="togglePassword()">
+                    <i class="fa fa-eye"></i>
+                </span>
+            </div>
+
+            <!-- Forgot Password -->
+            <div class="text-end mb-3">
+                <a href="{% url 'password_reset' %}" class="forgot-link">
+                    Forgot Password?
+                </a>
+            </div>
+
+            <button type="submit"
+                    class="btn login-btn w-100">
+                Login
+            </button>
+        </form>
+
+        <p class="text-center mt-4 text-light">
+            Don’t have account?
+            <a href="{% url 'register' %}" class="text-gold">
+                Register
+            </a>
+        </p>
+
+    </div>
+</div>
+</div>
+
+<!-- JS -->
+<script>
+function togglePassword() {
+    const input = document.getElementById("password");
+    const icon = document.querySelector(".toggle-password i");
+
+    if (input.type === "password") {
+        input.type = "text";
+        icon.classList.remove("fa-eye");
+        icon.classList.add("fa-eye-slash");
+    } else {
+        input.type = "password";
+        icon.classList.remove("fa-eye-slash");
+        icon.classList.add("fa-eye");
+    }
+}
+
+</script>
+
+{% endblock content %}

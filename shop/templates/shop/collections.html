@@ -1,0 +1,96 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+collections | sreeselvi
+{% endblock title %}  
+{% block content %}
+<section class="premium-hero text-center">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-title">Timeless Elegance</h1>
+      <h2 class="hero-subtitle">Our Bestseller Collections</h2>
+
+      <p class="hero-text">
+        Discover handcrafted luxury designed with precision, purity, and passion.
+        Every piece tells a story of tradition, trust, and timeless beauty.
+      </p>
+
+      <div class="gold-divider"></div>
+
+      <p class="hero-highlight">
+        ✨ Crafted in Gold. Designed for Generations. ✨
+      </p>
+
+      <div class="d-flex justify-content-center gap-3 mt-4">
+        <a href="{% url 'login' %}" class="btn btn-gold btn btn-primary">Already a Member</a>
+        <a href="{% url 'register' %}" class="btn btn-outline-gold btn btn-primary">Create Account</a>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ================= CATEGORY SECTION ================= -->
+
+<section class="category-section">
+  <div class="container">
+
+    <!-- Title -->
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h4 class="category-title">Explore Our Signature Collections</h4>
+        <p class="category-subtext">
+          A curated selection of gold, silver & diamond masterpieces crafted to perfection.
+        </p>
+        <div class="gold-divider mx-auto"></div>
+        {% include 'shop/inc/message.html' %}
+      </div>
+    </div>
+
+    <!-- Categories Grid -->
+    <div class="row justify-content-center">
+
+      {% for item in catagory %}
+      <div class="col-sm-6 col-md-4 col-lg-3 d-flex">
+        <div class="card premium-card my-4 w-100">
+
+          <div class="image-wrapper">
+            <img src="{{ item.image.url }}" class="card-img-top" alt="{{ item.name }}">
+            <div class="card-overlay">
+              <a href="{% url 'collections' item.name %}" class="view-btn">
+                Discover Collection
+              </a>
+            </div>
+          </div>
+
+          <div class="card-body text-center">
+            <h5 class="card-title">{{ item.name }}</h5>
+            <p class="card-text">{{ item.description }}</p>
+            <p class="gold-quote">✨ Pure Craft. Pure Relation. ✨</p>
+          </div>
+
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+
+<div class="container mt-5">
+    
+<div class="gold-chart-card shadow-lg">
+
+<h4 class="gold-chart-title text-center">
+📈 Weekly Gold Price Trend
+</h4>
+
+<canvas id="goldChartCanvas"></canvas>
+
+</div>
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+{% endblock content %} 
+

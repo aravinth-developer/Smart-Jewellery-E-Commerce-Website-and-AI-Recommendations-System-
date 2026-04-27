@@ -1,0 +1,146 @@
+{% extends 'shop/layouts/base.html' %}
+{% block title %}FAQ | Sree Selvi Jewellery{% endblock %}
+
+{% block content %}
+
+<section class="faq-banner">
+    <h1>Frequently Asked Questions</h1>
+    <p>Everything you need to know about gold purity, hallmarking, orders and delivery.</p>
+</section>
+
+
+<div class="faq-container">
+
+<div class="faq-item">
+<button class="faq-question">
+What is gold purity?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Gold purity indicates the percentage of pure gold in jewellery. 
+Pure gold is 24 Karat (24K), but most jewellery is made using 22K or 18K 
+because pure gold is very soft and not suitable for making durable ornaments.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+What is gold wastage in jewellery?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Gold wastage refers to the small amount of gold lost during the jewellery 
+manufacturing process. It is included in the final jewellery price and 
+depends on the complexity of the design and craftsmanship.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+What is BIS Hallmarking?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+BIS Hallmarking is a certification issued by the Bureau of Indian Standards 
+that confirms the purity of gold jewellery. Hallmarked jewellery ensures 
+that the gold meets government-approved purity standards.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+How can I check gold purity?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Gold purity can be verified through BIS hallmark symbols on the jewellery. 
+You can also check purity at authorized hallmarking centers or use gold 
+testing machines available in reputed jewellery shops.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+Do you provide online ordering?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Yes. Customers can browse our jewellery collections online and place 
+orders directly through our website. Our team will confirm the order 
+and assist you with payment and delivery options.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+How long does delivery take?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Delivery usually takes between 3 to 7 working days depending on 
+location and product availability. Customized jewellery may take 
+slightly longer due to the crafting process.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+Do you offer jewellery customization?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+Yes. We provide custom jewellery designs for weddings, engagements, 
+and special occasions. Customers can discuss their design preferences 
+with our experts.
+</div>
+</div>
+
+
+<div class="faq-item">
+<button class="faq-question">
+Is hallmark jewellery more expensive?
+<span class="icon">+</span>
+</button>
+<div class="faq-answer">
+No. Hallmarking only certifies the purity of the gold. It does not 
+significantly increase the cost of jewellery but ensures authenticity 
+and trust for customers.
+</div>
+</div>
+
+</div>
+
+
+<script>
+
+const faqQuestions = document.querySelectorAll(".faq-question");
+
+faqQuestions.forEach(question => {
+
+question.addEventListener("click", () => {
+
+const answer = question.nextElementSibling;
+const icon = question.querySelector(".icon");
+
+if(answer.style.display === "block"){
+answer.style.display = "none";
+icon.textContent = "+";
+}
+else{
+answer.style.display = "block";
+icon.textContent = "-";
+}
+
+});
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height:90px;" >
+  <div class="container-fluid" style="margin-top:-20px;">
+    <img src="{% static 'images/img4.png'%}" alt = 'alt_img' class="logo" >
+    <a class="navbar-brand" href="{% url 'home' %}">SREE SELVI JEWELLERY</a>
+    <button class="navbar-toggler" type="but  ton" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> 
+    <!-- Search Form -->
+    <form action="{% url 'product_search' %}" method="GET" class="nav-search-form ">
+        <input type="text" name="q" class="nav-search-input" placeholder="Search jewellery..." required>
+        <button type="submit" class="nav-search-btn">
+            <i class="fas fa-search"></i>
+        </button>
+    </form>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'home' %}">
+                <i class="fa fa-home"></i> Home
+            </a>
+        </li>
+
+    {% if request.user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+                <i class="fa fa-user"></i> {{ request.user }}
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fa fa-sign-out"></i> Logout
+            </a>
+        </li>
+
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'register' %}">
+                <i class="fa fa-user"></i> Register
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}">
+                <i class="fa fa-sign-in"></i> Login
+            </a>
+        </li>  
+    {% endif %}
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'collections' %}">
+            <i class="fa fa-cubes"></i> Collections
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'favviewpage' %}">
+            <i class="fa fa-heart"></i> favourite
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'my_orders' %}">
+            <i class="fa fa-list"></i> order
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'services' %}">
+            <i class="fa fa-cogs"></i> Services
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'wastage_prediction' %}">
+            <i class="fa fa-line-chart"></i> Prediction
+        </a>
+    </li>
+
+    <li class="nav-item" >
+        <a class="nav-link  btn btn-warning" href="{% url 'cart' %}" style="color:black">
+            <i class="fa fa-shopping-cart"></i> Cart
+        </a>
+    </li>
+    
+</ul>
+    </div>
+  </div>
+</nav>

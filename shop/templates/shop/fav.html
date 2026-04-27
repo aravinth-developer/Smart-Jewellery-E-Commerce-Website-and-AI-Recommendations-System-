@@ -1,0 +1,101 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+Favourites | sreeselvi
+{% endblock title %}    
+{% block content %}
+
+<section class="fav-section py-5">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-4">
+      <h2 class="fw-bold fav-title">💖 My Favourite Items</h2>
+      <div class="underline mx-auto"></div>
+    </div>
+
+    {% if fav %}
+
+    <div class="table-responsive">
+      <table class="table align-middle custom-table">
+
+        <thead>
+          <tr>
+            <th>Image</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th class="text-center">Remove</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% for item in fav %}
+          <tr class="fav-row">
+
+            <td>
+              <div class="img-box" >
+                <img src="{{ item.product.product_image.url }}"
+                     alt="{{ item.product.name }}" >
+              </div>
+            </td>
+
+            <td class="fw-semibold">
+              {{ item.product.name }}
+            </td>
+
+            <td class="text-success fw-bold">
+              ₹ {{ item.product.price_add_wastage|stringformat:'d' }}
+            </td>
+
+            <td class="text-center">
+              <a href="{% url 'remove_fav' item.id %}"
+                 onclick="return removeFav(event,this)"
+                 class="btn btn-outline-danger btn-sm remove-btn">
+                 <i class="fa fa-trash"></i>
+              </a>
+            </td>
+
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+    </div>
+
+    {% else %}
+
+    <!-- Empty State -->
+    <div class="text-center empty-state">
+      <h4 class="fw-bold">No Favourite Items 💔</h4>
+      <p class="text-muted">Start adding products you love.</p>
+      <a href="{% url 'collections' %}" class="btn btn-primary px-4">
+        Browse Products
+      </a>
+    </div>
+
+    {% endif %}
+
+  </div>
+</section>
+<script>
+function removeFav(event, element) {
+    event.preventDefault();
+
+    if(confirm("Remove this item from favourites?")) {
+
+        const row = element.closest('.fav-row');
+
+        row.style.transition = "0.4s ease";
+        row.style.opacity = "0";
+        row.style.transform = "translateX(-50px)";
+
+        setTimeout(() => {
+            window.location.href = element.href;
+        }, 400);
+    }
+
+    return false;
+}
+</script>
+
+{% endblock content %}

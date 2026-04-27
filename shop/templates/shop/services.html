@@ -1,0 +1,208 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+Services | JewelKart  
+{% endblock title %}    
+{% block content %}
+
+
+<style>
+/* Luxury Gold Gradient Background */
+.gold-bg {
+    background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+    color: white;
+    padding: 60px 0;
+}
+
+.section-title {
+    color: #d4af37;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.card-custom {
+    background: #ffffff;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+}
+
+.highlight {
+    color: #d4af37;
+    font-weight: 600;
+}
+
+.banner-img {
+    height: 400px;       /* Adjust height */
+    object-fit: cover;   /* Prevent stretching */
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .banner-img {
+        height: 250px;
+    }
+}
+
+</style>
+
+<!-- 🔶 Banner Section -->
+ 
+<div class="container-fluid p-0">
+    <div class="gold-bg text-center">
+        <h1 class="display-5 fw-bold">💎 Sree Selvi Jewellery</h1>
+        <p class="lead">Crafting Dreams into Timeless Gold</p>
+    </div>
+</div>
+
+<div class="container my-5">
+
+    <!-- ✨ Customized Jewellery Section -->
+    
+ <!-- ✨ Customized Jewellery Banner Carousel -->
+<div id="customCarousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{% static 'images/c3.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 1">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/c4.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 2">
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+
+    <h2 class="section-title text-center mb-4">✨ Customized Jewellery – Designed Just For You</h2>
+    <div class="card card-custom p-4 mb-5">
+        <p>
+            At <strong>Sree Selvi Jewellery</strong>, we don’t just create jewellery — 
+            we create emotions, memories, and lifelong treasures.
+        </p>
+
+        <p>
+            We specialize in custom-made gold and silver jewellery available in 
+            <span class="highlight">14K, 18K, 22K & 24K</span> purity options.
+        </p>
+
+        <ul class="mt-3">
+            <li>💍 Custom Gold & Silver Jewellery</li>
+            <li>👑 Bridal & Temple Collections</li>
+            <li>💎 Diamond & Precious Stone Settings</li>
+            <li>🔄 Modification of Existing Jewellery</li>
+            <li>🛠 Redesigning Old Gold into Stunning New Creations</li>
+            <li>📏 Personalized weight & purity customization</li>
+        </ul>
+
+        <p class="mt-3">
+            Your vision + Our craftsmanship = <span class="highlight">A Timeless Masterpiece</span>.
+        </p>
+    </div>
+
+    <!-- 🔬 Gold & Silver Testing -->
+    <div id="customCarousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{% static 'images/t3.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 1">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/t4.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 2">
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+
+    <h2 class="section-title text-center mb-4">🔬 Advanced Gold & Silver Purity Testing</h2>
+    <div class="card card-custom p-4 mb-5">
+        <ul>
+            <li>🏆 Accurate gold and silver testing using advanced German-based technology machines</li>
+            <li>📊 100% transparent and reliable purity verification</li>
+            <li>⚡ Instant testing results with minimal waiting time</li>
+            <li>🔐 Trusted evaluation handled by experienced professionals</li>
+            <li>📜 Detailed purity explanation for customer understanding</li>
+        </ul>
+
+        <p class="mt-3 highlight">Your purity is our priority.</p>
+    </div>
+
+    <!-- 🏅 Hallmarking Section -->
+     <div id="customCarousel" class="carousel slide carousel-fade mb-4" data-bs-ride="carousel">
+
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="{% static 'images/h3.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 1">
+    </div>
+
+    <div class="carousel-item">
+      <img src="{% static 'images/h4.png' %}" class="d-block w-100 banner-img" alt="Customized Banner 2">
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#customCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#customCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+
+</div>
+
+
+    <h2 class="section-title text-center mb-4">🏅 BIS Hallmarking Facilities</h2>
+    <div class="card card-custom p-4 mb-5">
+        <p>
+            We provide <strong>BIS Certified Hallmarking</strong> services to guarantee
+            the authenticity and government-approved purity standards of your jewellery.
+        </p>
+
+        <ul>
+            <li>✅ BIS Hallmark Certification Available</li>
+            <li>💛 Hallmarking for 14K, 18K & 22K Gold</li>
+            <li>🔎 Assured Purity & Legal Compliance</li>
+            <li>🛡 Government Standard Quality Verification</li>
+            <li>📌 Complete transparency and documentation</li>
+        </ul>
+
+        <p class="mt-3">
+            Hallmarking facilities are available here to ensure every ornament you own
+            carries trust, purity, and certified excellence.
+        </p>
+    </div>
+
+</div>
+
+{% endblock content%}  

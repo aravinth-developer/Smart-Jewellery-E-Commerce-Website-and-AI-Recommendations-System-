@@ -1,0 +1,125 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}
+Order Summary | SreeSelvi
+{% endblock title %}
+
+{% block content %}
+<section class="bg-light py-4 ssj-order-section">
+<div class="container">
+<div class="row">
+
+<div class="col-md-6 ssj-billing-card">
+<h4 class="mb-3"><i class="fa fa-user"></i> Billing Details</h4>
+<form method="POST">
+{% csrf_token %}
+
+<div class="mb-3">
+<label>Full Name</label>
+<input type="text" name="full_name" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Email</label>
+<input type="email" name="email" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Phone</label>
+<input type="text" name="phone" class="form-control" required>
+</div>
+
+<div class="mb-3">
+<label>Address</label>
+<textarea name="address" class="form-control" required></textarea>
+</div>
+
+<div class="row">
+<div class="col-md-6 mb-3">
+<label>City</label>
+<input type="text" name="city" class="form-control" required>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>State</label>
+<input type="text" name="state" class="form-control" required>
+</div>
+</div>
+
+<div class="mb-3">
+<label>Country</label>
+<input type="text" name="country" class="form-control" required>
+</div>
+
+<button type="submit" class="btn ssj-confirm-order-btn w-100">
+<i class="fa fa-check-circle">Confirm Order</i> 
+</button>
+
+</form>
+</div>
+
+<div class="col-md-6 ssj-order-card">
+<h4 class="mb-3"><i class="fa fa-shopping-bag"></i> Order Items</h4>
+<!-- Payment Method -->
+<div class="mb-3 ssj-payment-box">
+<label class="ssj-payment-label">Payment Method</label>
+
+<select name="payment_method" class="form-control ssj-payment-select">
+<option value="COD" selected>Cash on Delivery</option>
+<option value="COD" selected>UPI</option>
+<option value="COD" selected>Wallet</option>
+<option value="COD" selected> - </option>
+</select>
+
+<small class="text-muted">
+Pay when you receive the jewellery order.
+</small>
+</div>
+
+<table class="table table-bordered ssj-order-table">
+<tr>
+<th>Image</th>
+<th>Product name</th>
+<th>Qty</th>
+<th>Amount</th>
+</tr>
+
+
+{% for item in cart_items %}
+<tr>
+<td>
+{% if item.product.product_image %}
+<img src="{{ item.product.product_image.url }}"
+height="60px"
+class="rounded ssj-product-img">
+{% endif %}
+</td>
+
+<td>{{ item.product.name }}</td>
+<td>{{ item.product_qty }}</td>
+<td>₹ {{ item.total_cost }}</td>
+</tr>
+{% endfor %}
+
+<tr>
+<td colspan="3"><b>Total</b></td>
+<td><b>₹ {{ total }}</b></td>
+</tr>
+</table>
+
+</div>
+
+</div>
+</div>
+</section>
+<script>
+
+var whatsapp = "{{ request.session.whatsapp_url|default:'' }}";
+
+if(whatsapp){
+    window.open(whatsapp,"_blank");
+}
+
+</script>
+
+{% endblock content %}

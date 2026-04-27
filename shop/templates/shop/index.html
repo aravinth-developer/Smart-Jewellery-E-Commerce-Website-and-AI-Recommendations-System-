@@ -1,0 +1,160 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+Sree Selvi | JewelKart  
+{% endblock title %}    
+{% block content %}
+<div class="market-bar bg-dark text-white py-3 fixed-top" style="top: 70px;" >
+    <div class="container">
+        <div class="row text-center align-items-center">
+
+            <div class="col-md-4 col-4">
+                <strong class="text-warning">Gold (22K / 1g)</strong>
+                <span id="goldPrice" class="ms-1">₹0</span>
+                <span id="goldArrow" class="ms-1">▲</span>
+            </div>
+
+            <div class="col-md-4 col-4">
+                <strong class="text-warning">Silver (1g)</strong>
+                <span id="silverPrice" class="ms-1">₹0</span>
+                <span id="silverArrow" class="ms-1">▲</span>
+            </div>
+
+            <div class="col-md-4 col-4">
+                <strong>Market : </strong>
+                <span id="marketStatus" class="fw-bold text-success ms-1">
+                    OPEN
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% include 'shop/inc/slider.html' %}
+<section class="latest-section py-5" >
+<div class="container">
+
+<div class="container my-5">
+
+    <!-- Section Title -->
+    <div class="row mb-4">
+        <div class="col-12 d-flex align-items-center">
+            <h3 class="fw-bold text-dark me-3 mb-0">
+                Latest Offers
+            </h3>
+            <div class="flex-grow-1 border-top" style="height:2px; background:#d4af37;"></div>
+        </div>
+    </div>
+
+    <!-- Offers Cards -->
+    <div class="row g-4">
+
+        <!-- Offer 1 -->
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <img src="{% static 'images/20.jpg' %}" class="card-img-top" alt="Offer">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Flat 20% OFF</h5>
+                    <p class="card-text text-muted">
+                        On all Gold Earrings Collection
+                    </p>
+                    <a href="http://127.0.0.1:8000/collections/Premium%20Gold%20Selection/Empress%20Honeycomb%20Floral%20Drop%20Earrings" class="btn btn-warning btn-sm px-4">
+                        Today’s Highlight
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offer 2 -->
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <img src="{% static 'images/13.jpg' %}" class="card-img-top" alt="Offer">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Buy Your Divine Collections</h5>
+                    <p class="card-text text-muted">
+                        Exclusive Temple Jewellery
+                    </p>
+                    <a href="http://127.0.0.1:8000/collections/Premium%20Gold%20Selection/Divine%20Lakshmi%20Temple%20Nakshi%20Necklace" class="btn btn-warning btn-sm px-4">
+                        Exclusive Deal
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Offer 3 -->
+        <div class="col-md-4">
+            <div class="card offer-card h-100">
+                <img src="{% static 'images/16.jpg' %}" class="card-img-top" alt="Offer">
+                <div class="card-body text-center">
+                    <h5 class="card-title fw-bold">Festival Special</h5>
+                    <p class="card-text text-muted">
+                        No Making Charges on Chains
+                    </p>
+                    <a href="http://127.0.0.1:8000/collections/Premium%20Gold%20Selection/Modern%20Oval-Link%20Sleek%20Gold%20Chain" class="btn btn-warning btn-sm px-4">
+                        Trending Now
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="row g-4">
+
+{% for product in products %}
+<div class="col-md-6 col-lg-3 ">
+
+<div class="card product-card h-100 shadow-sm border-0  ">
+
+    <div class="image-wrapper">
+        <img src="{{ product.product_image.url }}"
+             class="card-img-top product-img"
+             alt="{{ product.name }}">
+
+        {% if product.trending %}
+        <span class="badge bg-danger position-absolute top-0 start-0 m-2">
+            HOT
+        </span>
+        {% endif %}
+    </div>
+
+    <div class="card-body">
+
+        <h6 class="card-title fw-semibold text-dark">
+            {{ product.name }}
+        </h6>
+
+        <div class="d-flex justify-content-between align-items-center mt-2">
+
+            <span class="text-muted small">
+                <s>₹ {{ product.price_without_wastage|stringformat:'d' }}</s>
+            </span>
+
+            <span class="fw-bold text-success btn btn-warning">
+                ₹ {{ product.price_add_wastage|stringformat:'d' }}
+            </span>
+
+        </div>
+
+    </div>
+
+    <a href="{% url 'product_details' product.Catagory.name product.name %}"
+       class="stretched-link"></a>
+
+</div>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+</section>
+
+
+
+{% endblock content%}  
+
+{% block scripts %}
+{% endblock scripts %}

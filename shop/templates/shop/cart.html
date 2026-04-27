@@ -1,0 +1,109 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+Cart | sreeselvi
+{% endblock title %}    
+{% block content %}
+<section class="bg-light py-4 my-0">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="mb-3">CART ITEMS</h4>
+        <hr class="w-200 mx-auto" style="border-color: #b8bfc2;">
+      </div>
+       
+       <form action="{% url 'multi_order_summary' %}" method="POST">
+{% csrf_token %}
+
+<div class="cart-wrapper">
+
+<table class="table modern-table align-middle">
+    <thead>
+        <tr>
+            <th width="50">
+                <input type="checkbox" id="selectAll">
+            </th>
+            <th>Product</th>
+            <th>Unit</th>
+            <th>Qty</th>
+            <th>Amount</th>
+            <th>Remove</th>
+        </tr>
+    </thead>
+
+    <tbody>
+    {% for item in cart %}
+        <tr class="cart-row">
+            <td>
+                <input type="checkbox"
+                       name="cart_ids"
+                       value="{{ item.id }}"
+                       class="item-check">
+            </td>
+
+            <td class="d-flex align-items-center">
+                <img src="{{ item.product.product_image.url }}"
+                     class="products-img me-3">
+                <span class="fw-semibold">
+                    {{ item.product.name }}
+                </span>
+            </td>
+
+            <td>₹ {{ item.product.price_add_wastage }}</td>
+            <td>{{ item.product_qty }}</td>
+            <td class="amt">₹ {{ item.total_cost }}</td>
+
+            <td>
+                <a href="{% url 'remove_cart' item.id %}"
+                   class="btn btn-sm btn-danger">
+                   Remove
+                </a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<div class="checkout-box">
+    <h5>Total: ₹ <span id="net">0</span></h5>
+    <button type="submit" class="btn checkout-btn">
+        Proceed to Checkout
+    </button>
+</div>
+
+</div>
+</form>
+    </div>
+  </div>
+</section>
+<script>
+const checks = document.querySelectorAll(".item-check");
+const totalBox = document.getElementById("net");
+
+function calculateTotal(){
+    let total = 0;
+
+    checks.forEach(check=>{
+        if(check.checked){
+            let row = check.closest("tr");
+            let amountText = row.querySelector(".amt").innerText;
+            let amount = parseFloat(amountText.replace("₹","").trim());
+            total += amount;
+        }
+    });
+
+    totalBox.innerText = total.toFixed(2);
+}
+
+checks.forEach(check=>{
+    check.addEventListener("change", calculateTotal);
+});
+
+document.getElementById("selectAll").addEventListener("change", function(){
+    checks.forEach(check => check.checked = this.checked);
+    calculateTotal();
+});
+</script>
+
+{% endblock content%} 
+

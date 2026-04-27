@@ -1,0 +1,136 @@
+{% extends 'shop/layouts/base.html'%}
+{% block title %}  
+Registration | sreeselvi
+{% endblock title %}    
+{% block content %}
+
+<div class="register-body">
+<!-- Background Particles -->
+<div id="particles-js"></div>
+
+<div class="register-wrapper d-flex align-items-center justify-content-center">
+
+<div class="register-card">
+
+<h2 class="text-center mb-4 text-gold">Create Account</h2>
+
+{% include 'shop/inc/message.html' %}
+
+<form method="post" id="registerForm">
+{% csrf_token %}
+
+<!-- Username -->
+<div class="floating-group">
+    {{ form.username }}
+    <label>Username</label>
+</div>
+
+<!-- Email -->
+<div class="floating-group">
+    {{ form.email }}
+    <label>Email</label>
+</div>
+
+<!-- Mobile -->
+<div class="floating-group">
+    {{ form.mobile }}
+    <label>Mobile Number</label>
+    <small id="mobileError" class="text-danger"></small>
+</div>
+
+<!-- Password -->
+<div class="floating-group position-relative">
+    {{ form.password1 }}
+    <label>Password</label>
+    <span class="toggle-password" onclick="togglePassword('id_password1', this)">
+        <i class="fa fa-eye"></i>
+    </span>
+    <div class="strength-meter mt-2">
+        <div id="strengthBar"></div>
+    </div>
+</div>
+
+<!-- Confirm Password -->
+<div class="floating-group position-relative">
+    {{ form.password2 }}
+    <label>Confirm Password</label>
+    <span class="toggle-password" onclick="togglePassword('id_password2', this)">
+        <i class="fa fa-eye"></i>
+    </span>
+</div>
+
+<button type="submit" class="btn register-btn w-100 mt-3">
+    Register
+</button>
+
+<p class="text-center mt-3 text-light">
+    Already have account?
+    <a href="{% url 'login' %}" class="text-gold">Login</a>
+</p>
+
+</form>
+</div>
+</div>
+</div>
+
+
+<script>
+/* PASSWORD TOGGLE */
+function togglePassword(id, el) {
+    const input = document.getElementById(id);
+    if (input.type === "password") {
+        input.type = "text";
+        el.innerHTML = '<i class="fa fa-eye-slash"></i>';
+    } else {
+        input.type = "password";
+        el.innerHTML = '<i class="fa fa-eye"></i>';
+    }
+}
+
+/* MOBILE VALIDATION */
+document.getElementById("registerForm").addEventListener("submit", function(e){
+    let mobile = document.getElementById("id_mobile").value;
+    if(!/^[0-9]{10}$/.test(mobile)){
+        e.preventDefault();
+        document.getElementById("mobileError").innerText = "Enter valid 10 digit mobile number";
+    }
+});
+
+/* PASSWORD STRENGTH */
+const passwordInput = document.getElementById("id_password1");
+const strengthBar = document.getElementById("strengthBar");
+
+passwordInput.addEventListener("keyup", function(){
+    let strength = 0;
+    let value = passwordInput.value;
+
+    if(value.length > 6) strength++;
+    if(/[A-Z]/.test(value)) strength++;
+    if(/[0-9]/.test(value)) strength++;
+    if(/[@$!%*?&]/.test(value)) strength++;
+
+    let width = strength * 25;
+    strengthBar.style.width = width + "%";
+
+    if(strength <= 1) strengthBar.style.background = "red";
+    else if(strength == 2) strengthBar.style.background = "orange";
+    else if(strength == 3) strengthBar.style.background = "yellow";
+    else strengthBar.style.background = "green";
+});
+
+/* PARTICLES BACKGROUND */
+particlesJS("particles-js", {
+    particles: {
+        number: { value: 80 },
+        size: { value: 3 },
+        color: { value: "#d4af37" },
+        line_linked: {
+            enable: true,
+            color: "#d4af37"
+        },
+        move: { speed: 2 }
+    }
+});
+</script>
+{% endblock content%} 
+

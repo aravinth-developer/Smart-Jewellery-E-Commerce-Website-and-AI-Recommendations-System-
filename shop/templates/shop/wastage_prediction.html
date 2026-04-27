@@ -1,0 +1,103 @@
+{% extends 'shop/layouts/base.html'%}
+{% load static %}
+{% block title %}  
+Prediction | JewelKart  
+{% endblock title %}    
+{% block content %}
+
+<div class="container my-5">
+
+<h2 class="text-center gold-title mb-4">
+💎 Sree Selvi Jewellery – ML Based Wastage Prediction
+</h2>
+
+<div class="info-box p-4 mb-4">
+<h5>📌 What is Jewellery Wastage?</h5>
+<p>
+Jewellery wastage represents the percentage of gold lost during the manufacturing process.
+</p>
+
+<p><strong>Formula:</strong></p>
+<p class="formula">
+Wastage % = (Gold Given – Final Weight) / Final Weight × 100
+</p>
+
+<p>
+At <strong>Sree Selvi Jewellery</strong>, we calculate only the wastage percentage.
+Making charges and VA% (Value Addition) are NOT included in this system.
+</p>
+</div>
+
+<form method="POST" class="card p-4 shadow">
+{% csrf_token %}
+
+<div class="row">
+<div class="col-md-6 mb-3">
+<label>Jewel Type</label>
+<select name="jewel" class="form-control">
+<option>Ring</option>
+<option>Chain</option>
+<option>Necklace</option>
+<option>Bangle</option>
+<option>Bracelet</option>
+<option>Temple Jewellery</option>
+<option>Pendant</option>
+<option>Earring</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Karat</label>
+<select name="karat" class="form-control">
+<option>14</option>
+<option>18</option>
+<option>22</option>
+<option>24</option>
+</select>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6 mb-3">
+<label>Design Type</label>
+<select name="design" class="form-control">
+<option>Simple</option>
+<option>Medium</option>
+<option>Heavy</option>
+</select>
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Stone Included</label>
+<select name="stone" class="form-control">
+<option>Yes</option>
+<option>No</option>
+</select>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-6 mb-3">
+<label>Gold Given Weight (g)</label>
+<input type="number" step="0.01" name="gold" class="form-control">
+</div>
+
+<div class="col-md-6 mb-3">
+<label>Final Weight (g)</label>
+<input type="number" step="0.01" name="final" class="form-control">
+</div>
+</div>
+
+<button class="btn btn-warning w-100">Predict Wastage %</button>
+
+</form>
+
+{% if result %}
+<div class="result-box mt-4 p-4 text-center">
+<h3>Predicted Wastage: {{ result }} %</h3>
+</div>
+{% endif %}
+
+</div>
+
+{% endblock content %}
