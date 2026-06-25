@@ -165,4 +165,59 @@ https://github.com/aravinth-developer/Smart-Jewellery-E-Commerce-Website-and-AI-
 
 This project is developed for educational and learning purposes.
 
+---
+
+## 📸 Project Screenshots
+
+### 🏠 Home Page
+
+![Home Page](screenshots/127.0.0.1_8000_home%20(3).png)
+
+---
+
+### 🔐 Login Page
+
+![Login Page](screenshots/Gemini_Generated_Image_hggpzehggpzehggp.png)
+
+---
+
+### 📝 Registration Page
+
+![Registration Page](screenshots/Gemini_Generated_Image_4lduno4lduno4ldu.png)
+
+---
+
+### 💍 Jewellery Collections
+
+![Collections](screenshots/127.0.0.1_8000_collections%20(2).png)
+
+---
+
+### ✨ Product Details
+
+![Product Details](screenshots/127.0.0.1_8000_collections_Premium20Selection_Royal20Floral20Jhumkas.png)
+
+---
+
+### 🤖 AI Jewellery Recommendations
+
+![Recommendations](screenshots/127.0.0.1_8000_my-orders.png)
+
+---
+
+### 🛒 Shopping Cart
+
+![Cart](screenshots/127.0.0.1_8000_cart%20(1).png)
+
+---
+
+### 💳 Order Summary
+
+![Order Summary](screenshots/127.0.0.1_8000_order-summary_.png)
+
+---
+
+### 📈 ML-Based Wastage Prediction
+
+![Wastage Prediction](screenshots/127.0.0.1_8000_wastage-prediction_.png)
 
