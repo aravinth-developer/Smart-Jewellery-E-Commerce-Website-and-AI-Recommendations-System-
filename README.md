@@ -167,7 +167,7 @@ This project is developed for educational and learning purposes.
 
 ### 🏠 Home Page
 
-![Home Page](screenshots/127.0.0.1_8000_home%20(3).png)
+![Home Page](screenshots/127.0.0.1_8000_home(3).png)
 
 ---
 
@@ -185,7 +185,7 @@ This project is developed for educational and learning purposes.
 
 ### 💍 Jewellery Collections
 
-![Collections](screenshots/127.0.0.1_8000_collections%20(2).png)
+![Collections](screenshots/127.0.0.1_8000_collections(2).png)
 
 ---
 
@@ -203,7 +203,7 @@ This project is developed for educational and learning purposes.
 
 ### 🛒 Shopping Cart
 
-![Cart](screenshots/127.0.0.1_8000_cart%20(1).png)
+![Cart](screenshots/127.0.0.1_8000_cart(1).png)
 
 ---
 
