@@ -56,7 +56,7 @@ The system combines modern web technologies with Artificial Intelligence to prov
 
 ### Database
 
-* SQLite / MySQL
+* MySQL
 
 ### AI & Machine Learning
 
@@ -92,11 +92,7 @@ Smart-Jewellery/
 
 ## ⚙️ Installation
 
-### Clone Repository
 
-```bash
-git clone https://github.com/aravinth-developer/Smart-Jewellery-E-Commerce-Website-and-AI-Recommendations-System-.git
-```
 
 ### Navigate to Project
 
@@ -220,4 +216,3 @@ This project is developed for educational and learning purposes.
 ### 📈 ML-Based Wastage Prediction
 
 ![Wastage Prediction](screenshots/127.0.0.1_8000_wastage-prediction_.png)
-
